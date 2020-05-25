@@ -1,0 +1,3 @@
+com\authplugin\deviceauth\MyAuthBroker.class
+com\authplugin\deviceauth\MyAuthPlugin.class
+com\authplugin\deviceauth\App.class
