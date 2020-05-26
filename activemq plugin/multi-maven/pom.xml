@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>it.italiancoders.activemq</groupId>
+    <artifactId>plugin-parent</artifactId>
+    <version>1.1.0-1</version>
+    <packaging>pom</packaging>
+
+    <name>ActiveMQ Plugin Parent</name>
+    <description>ActiveMQ Plugin Development Parent</description>
+
+    <!-- ###############################################################################################################
+    MAVEN CONFIGURATIONS
+
+    In your ide (e.g. IntelliJ) you should configure those configurations:
+
+    Install (to build and install module plugins-simple without running tests):
+        Working directory: <current parent pom dir>
+        Command line: clean install -DskipTests
+    Test (to debug tests under plugins-simple-test module):
+        Working directory: <current parent pom dir>
+        Command line: test
+    ActiveMQ (to run and debug ActiveMQ with external client, module plugins-simple-run):
+        Working directory: <current parent pom dir>/plugins-simple-run
+        Command line: activemq:run@debug
+
+    NOTES: Test and ActiveMQ POM set forkCount=0, so maven process will not fork another process to
+           run test (IDE could stop on breakpoints).
+    ################################################################################################################ -->
+
+    <properties>
+        <!-- Do not use current platform encoding, but use UTf-8 to avoid encoding warnings -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Java source and target version -->
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <!-- External libraries and frameworks version -->
+        <activemq-version>5.15.9-L1</activemq-version>
+        <mqtt-client-version>1.14</mqtt-client-version>
+        <spring-session-version>1.3.3.RELEASE</spring-session-version>
+        <spring-version>5.0.9.RELEASE</spring-version>
+        <spring-security-version>5.1.6.RELEASE</spring-security-version>
+        <jetty-version>9.4.19.v20190610</jetty-version>
+        <tomcat-api-version>8.0.38</tomcat-api-version>
+        <junit-version>4.12</junit-version>
+        <jackson-version>2.9.8</jackson-version>
+        <mybatis-version>3.4.6</mybatis-version>
+        <mybatis-spring-version>1.3.2</mybatis-spring-version>
+        <common-lang3-version>3.8.1</common-lang3-version>
+        <common-codec-version>1.11</common-codec-version>
+        <hikaricp-version>3.2.0</hikaricp-version>
+        <ojdbc6-version>11.2.0.4</ojdbc6-version>
+
+        <jftapi-version>4.1.5</jftapi-version>
+        <jftapi-netty-version>4.1.8</jftapi-netty-version>
+        <jftapi-dd-version>3.1.43b-rev2</jftapi-dd-version>
+        <lombok-version>1.18.2</lombok-version>
+        <!-- Maven plugins -->
+        <sunfire-plugin-version>2.19.1</sunfire-plugin-version>
+        <activemq-plugin-name>coherence</activemq-plugin-name>
+    </properties>
+
+    <modules>
+        <module>plugin</module>
+        <module>plugin-test</module>
+        <module>plugin-run</module>
+    </modules>
+
+    <!-- plugins and test dependencies -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>3.8.1</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-all</artifactId>
+                <version>${activemq-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-leveldb-store</artifactId>
+                <version>${activemq-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-broker</artifactId>
+                <version>5.15.8</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jms</artifactId>
+                <version>${spring-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${spring-version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
