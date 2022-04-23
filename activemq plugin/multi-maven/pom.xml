@@ -43,7 +43,7 @@
         <activemq-version>5.15.9-L1</activemq-version>
         <mqtt-client-version>1.14</mqtt-client-version>
         <spring-session-version>1.3.3.RELEASE</spring-session-version>
-        <spring-version>5.0.9.RELEASE</spring-version>
+        <spring-version>5.3.19</spring-version>
         <spring-security-version>5.1.6.RELEASE</spring-security-version>
         <jetty-version>9.4.19.v20190610</jetty-version>
         <tomcat-api-version>8.0.38</tomcat-api-version>
